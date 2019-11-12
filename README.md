@@ -4,10 +4,10 @@ An open roleplay gaming system for Play-by-Post session
 ## why
 After years of frustration with finding time to commit to organized, in-person play, I've decided what the gaming world needs is a modern solution for supporting post-by-play (PBP) sessions. Participants play when they can.
 
-# who
+## who
 For now, this "engine" will go with the standard practice of having (at least one) gamemaster (GM) and at least two players.
 
-# what
+## what
 Some features that I aspire to:
 * Agnostic gameplay. Bring your own role playing game system. Open PBP makes few assumptions.
 * Tools, not rules. No vendor-specific rules are implemented. Open PBP provides only the tools to automate and coordinate post-by-play gaming.
@@ -17,3 +17,8 @@ Some features that I aspire to:
 * Document sharing for handouts, like maps and game notes.
 * Character sheets. But better: Track transient character experience, statistics, equipment and supplies, and other essential bookkeeping.
 * Notifications. When the gaming session is waiting for input to move the plot along, participants get brief notifications to alert them that the game is waiting.
+
+## join me
+I wouldn't mind a hand with this. I usually fail when I take on ambitious projects by myself.
+
+What skills do I need? Right now I'm looking for contributors with similar technical skillsets: Javascript is the minimum. I learning towards Node for the back-end. The rest is up in the air.
