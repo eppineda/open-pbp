@@ -1,5 +1,5 @@
 # open-pbp
-An open roleplay gaming system for Play-by-Post session
+An open roleplay gaming system for Play-by-Post sessions
 
 ## why
 After years of frustration with finding time to commit to organized, in-person play, I've decided what the gaming world needs is a modern solution for supporting post-by-play (PBP) sessions. Participants play when they can.
