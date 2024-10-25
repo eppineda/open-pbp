@@ -21,4 +21,4 @@ Some features that I aspire to:
 ## join me
 I wouldn't mind a hand with this. I usually fail when I take on ambitious projects by myself.
 
-What skills do I need? Right now I'm looking for contributors with similar technical skillsets: Javascript is the minimum. I learning towards Node for the back-end. The rest is up in the air.
+What skills do I need? Right now I'm looking for contributors with similar technical skillsets: Javascript is the minimum. I am leaning towards Node for the back-end. The rest is up in the air.
