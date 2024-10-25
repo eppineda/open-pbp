@@ -21,4 +21,12 @@ Some features that I aspire to:
 ## join me
 I wouldn't mind a hand with this. I usually fail when I take on ambitious projects by myself.
 
-What skills do I need? Right now I'm looking for contributors with similar technical skillsets: Javascript is the minimum. I am leaning towards Node for the back-end. The rest is up in the air.
+### tech stack
+
+Intentionally minimalist, to avoid upgrade churn, popular with so-called "modern" frameworks.
+- HTML, JavaScript and CSS.
+- HTMX (in protest to aforementioned frameworks).
+- NodeJS
+- Mojo.js (again, in protest to the proliferation of redundant, overlapping frameworks)
+
+
