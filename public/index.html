@@ -4,9 +4,21 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Hello, World</title>
 		<link href="https://cdn.jsdelivr.net/npm/picnic" rel="stylesheet">
+		<link rel="stylesheet" href="./index.css">
 		<script src="https://unpkg.com/htmx.org@2.0.0/dist/htmx.esm.js" type="module"></script>
+		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js" defer></script>
+		<script src="./pass-validation.js"></script>
 	</head>
 	<body>
-		<h1>Hello, World.</h1>
+		<div id="main" class="flex one" data-xdata="{ conversation: '', who: 'me', what: '' }">
+			<div id="top">
+				<textarea readonly rows="50" cols="1" data-xmodel="conversation"></textarea>
+			</div>
+			<div id="bottom">
+				<input type="text" data-xmodel="what">
+				<button data-xon.click="conversation += `${ who }&gt; ${ what }\n`">send</button>
+			</div>
+		</div>
 	</body>
 </html>
+
