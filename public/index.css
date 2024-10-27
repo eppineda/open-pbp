@@ -3,12 +3,10 @@ body {
 	height: 100%;
 }
 #bottom {
-	border: thick solid pink;
 }
 #main {
 	height: 100%;
 }
 #top {
-	border: thick solid blue;
 	height: 89%;
 }
