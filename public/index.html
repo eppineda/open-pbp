@@ -7,16 +7,26 @@
 		<link rel="stylesheet" href="./index.css">
 		<script src="https://unpkg.com/htmx.org@2.0.0/dist/htmx.esm.js" type="module"></script>
 		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js" defer></script>
-		<script src="./pass-validation.js"></script>
+		<script>
+		const updateConversation = () => {
+			conversation += `${ who }&gt; ${ what }\n`
+			document.getElementById('sayBox').value = ''
+		}
+		</script>
 	</head>
 	<body>
-		<div id="main" class="flex one" data-xdata="{ conversation: '', who: 'me', what: '' }">
+		<div id="main" class="flex one" x-data="{ conversation: '', who: 'me', what: '' }">
 			<div id="top">
-				<textarea readonly rows="50" cols="1" data-xmodel="conversation"></textarea>
+				<textarea readonly rows="36" cols="1" x-model="conversation"></textarea>
 			</div>
-			<div id="bottom">
-				<input type="text" data-xmodel="what">
-				<button data-xon.click="conversation += `${ who }&gt; ${ what }\n`">send</button>
+			<div id="bottom" x-data="{
+				updateConversation: () => conversation += `${ who }&gt; ${ what }\n`, 
+				clear: () => document.getElementById('sayBox').value = '' }">
+				<input type="text" x-model="what" id="sayBox">
+				<button @click="updateConversation(); clear()" 
+					@keyup:enter="updateConversation(); clear()">
+				send
+				</button>
 			</div>
 		</div>
 	</body>
