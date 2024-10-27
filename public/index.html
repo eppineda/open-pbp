@@ -7,11 +7,17 @@
 		<link rel="stylesheet" href="./index.css">
 		<script src="https://unpkg.com/htmx.org@2.0.0/dist/htmx.esm.js" type="module"></script>
 		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js" defer></script>
+		<script>
+		 function scrollBar() {
+		    var content = document.getElementById('textarea');
+		    content.scrollTop = content.scrollHeight;
+		 }
+      		</script>
 	</head>
 	<body>
 		<div id="main" class="flex one" x-data="{ conversation: '', who: 'me', what: '' }">
 			<div id="top">
-				<textarea readonly x-model="conversation"></textarea>
+				<textarea id="textarea" readonly x-model="conversation"></textarea>
 			</div>
 			<div id="bottom" x-data="{
 				updateConversation: () => conversation += `${ who }&gt; ${ what }\n`, 
@@ -30,8 +36,8 @@
 						</div>
 					</div>
 				</div>
-				<input type="text" x-model="what" id="sayBox" @keyup.enter="updateConversation(); clear()">
-				<button @click="updateConversation(); clear()">
+				<input type="text" x-model="what" id="sayBox" @keyup.enter="updateConversation(); clear(); window.scrollBar()">
+				<button @click="updateConversation(); clear(); window.scrollBar()">
 				send
 				</button>
 			</div>
