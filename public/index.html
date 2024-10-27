@@ -16,9 +16,8 @@
 			<div id="bottom" x-data="{
 				updateConversation: () => conversation += `${ who }&gt; ${ what }\n`, 
 				clear: () => document.getElementById('sayBox').value = '' }">
-				<input type="text" x-model="what" id="sayBox">
-				<button @click="updateConversation(); clear()" 
-					@keyup.enter="updateConversation(); clear()">
+				<input type="text" x-model="what" id="sayBox" @keyup.enter="updateConversation(); clear()">
+				<button @click="updateConversation(); clear()">
 				send
 				</button>
 			</div>
