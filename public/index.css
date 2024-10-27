@@ -1,15 +1,27 @@
 body {
-	margin-left: 1.0em;
+	/* background-color: black; */
+	margin: 1.0em;
 }
 #bottom {
+	/* background-color: lightgreen; */
+	height: 35%;
+	padding: 1.0em;
 }
 #hint {
 	padding-left: 1.0em;
 }
 #main {
-	padding-left: 1.0em;
-	height: 80%;
+	/* background-color: red; */
+	border: none;
+	height: 100%;
+}
+textarea {
+	/* background-color: pink; */
+	border: none;
+	height: 100%;
 }
 #top {
-	height: 80%;
+	/* background-color: lightblue; */
+	height: 65%;
+	padding: 1.0em;
 }

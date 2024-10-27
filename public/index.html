@@ -11,25 +11,25 @@
 	<body>
 		<div id="main" class="flex one" x-data="{ conversation: '', who: 'me', what: '' }">
 			<div id="top">
-				<textarea readonly rows="30" cols="1" x-model="conversation"></textarea>
-			</div>
-			<div class="tabs two">
-				<input id='tab-1' type='radio' name='tabgroupB' checked />
-  				<label class="pseudo button toggle" for="tab-1">Out-of-character</label>
-  				<input id='tab-2' type='radio' name='tabgroupB'>
-  				<label class="pseudo button toggle" for="tab-2">In-character</label>
-				<div id="hint" class="row" style="color: lightgray;">
-					<div>
-						<p><em>You are chatting out-of-character:</em></p>
-					</div>
-    					<div>
-						<p><em>You are chatting in-character:</em></p>
-    					</div>
-				</div>
+				<textarea readonly x-model="conversation"></textarea>
 			</div>
 			<div id="bottom" x-data="{
 				updateConversation: () => conversation += `${ who }&gt; ${ what }\n`, 
 				clear: () => document.getElementById('sayBox').value = '' }">
+				<div class="tabs two">
+					<input id='tab-1' type='radio' name='tabgroupB' checked />
+					<label class="pseudo button toggle" for="tab-1">Out-of-character</label>
+					<input id='tab-2' type='radio' name='tabgroupB'>
+					<label class="pseudo button toggle" for="tab-2">In-character</label>
+					<div id="hint" class="row" style="color: lightgray;">
+						<div>
+							<p><em>You are chatting out-of-character:</em></p>
+						</div>
+						<div>
+							<p><em>You are chatting in-character:</em></p>
+						</div>
+					</div>
+				</div>
 				<input type="text" x-model="what" id="sayBox" @keyup.enter="updateConversation(); clear()">
 				<button @click="updateConversation(); clear()">
 				send
