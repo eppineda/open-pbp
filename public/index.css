@@ -1,12 +1,15 @@
 body {
-	background-color: black;
-	height: 100%;
+	margin-left: 1.0em;
 }
 #bottom {
 }
+#hint {
+	padding-left: 1.0em;
+}
 #main {
-	height: 100%;
+	padding-left: 1.0em;
+	height: 80%;
 }
 #top {
-	height: 89%;
+	height: 80%;
 }
