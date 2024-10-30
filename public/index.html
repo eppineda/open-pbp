@@ -8,20 +8,29 @@
 		<script src="https://unpkg.com/htmx.org@2.0.0/dist/htmx.esm.js" type="module"></script>
 		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js" defer></script>
 		<script>
-		function scrollBar() {
+		function clear() { document.getElementById('sayBox').value = ''; what = '' }
+		function scrollDown() {
 			var content = document.getElementById('textarea');
 			content.scrollTop = content.scrollHeight;
 		}
+		function updateConversation() { this.conversation += `${ this.who }> ${ this.what }\n` }
       		</script>
 	</head>
 	<body>
-		<div id="main" class="flex one" x-data="{ ME: 'me', PC: 'Conan', conversation: '', who: 'me', what: '' }">
+		<div id="main" class="flex one" x-data="{
+			ME: 'me',
+			PC: 'Conan',
+			conversation: '',
+			who: 'me',
+			what: '',
+			clear,
+			updateConversation,
+			scrollDown,
+		}">
 			<div id="top">
 				<textarea id="textarea" readonly x-model="conversation"></textarea>
 			</div>
-			<div id="bottom" x-data="{
-				updateConversation: () => conversation += `${ who }&gt; ${ what }\n`, 
-				clear: () => { document.getElementById('sayBox').value = ''; what = '' }}">
+			<div id="bottom">
 				<div class="tabs two">
 					<input id='tab-1' type='radio' name='tabgroupB' checked 
 						@click = "who = ME">
@@ -38,8 +47,8 @@
 						</div>
 					</div>
 				</div>
-				<input type="text" x-model="what" id="sayBox" @keyup.enter="updateConversation(); clear(); window.scrollBar()">
-				<button @click="updateConversation(); clear(); window.scrollBar()">
+				<input type="text" x-model="what" id="sayBox" @keyup.enter="updateConversation(); clear(); scrollDown()">
+				<button @click="updateConversation(); clear(); scrollDown()">
 				send
 				</button>
 			</div>
