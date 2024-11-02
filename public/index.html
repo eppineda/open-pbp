@@ -7,19 +7,14 @@
 		<link rel="stylesheet" href="./index.css">
 		<script src="https://unpkg.com/htmx.org@2.0.0/dist/htmx.esm.js" type="module"></script>
 		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js" defer></script>
-		<script>
-		function clear() { document.getElementById('sayBox').value = ''; what = '' }
-		function scrollDown() {
-			var content = document.getElementById('textarea');
-			content.scrollTop = content.scrollHeight;
-		}
-		function updateConversation() { this.conversation += `${ this.who }> ${ this.what }\n` }
-      		</script>
+		<script src="./profile.js"></script>
+		<script src="./chat-util.js"></script>
+      		
 	</head>
 	<body>
 		<div id="main" class="flex one" x-data="{
-			ME: 'me',
-			PC: 'Conan',
+			ME,
+			PC,
 			conversation: '',
 			who: 'me',
 			what: '',
@@ -33,10 +28,10 @@
 			<div id="bottom">
 				<div class="tabs two">
 					<input id='tab-1' type='radio' name='tabgroupB' checked 
-						@click = "who = ME">
+						@click="who = ME">
 					<label class="pseudo button toggle" for="tab-1">Out-of-character</label>
 					<input id='tab-2' type='radio' name='tabgroupB'
-						@click = "who = PC">
+						@click="who = PC">
 					<label class="pseudo button toggle" for="tab-2">In-character</label>
 					<div id="hint" class="row" style="color: lightgray;">
 						<div>
