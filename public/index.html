@@ -6,26 +6,33 @@
 		<link href="https://cdn.jsdelivr.net/npm/picnic" rel="stylesheet">
 		<link rel="stylesheet" href="./index.css">
 		<script src="https://unpkg.com/htmx.org@2.0.0/dist/htmx.esm.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js" defer></script>
 		<script src="./profile.js"></script>
-		<script type="module">
-		import assigned from './init.js'
-		characters = assigned
-		</script>
 		<script src="./chat-util.js"></script>
-      		
-	</head>
-	<body>
-		<div id="main" class="flex one" x-data="{
+		<script type="module" defer>
+// This has to execute _before_ alpine lib gets loaded
+		import characters from './init.js'
+
+		const profile = {
 			ME,
-			PC,
 			conversation: '',
 			who: 'me',
 			what: '',
 			clear,
 			updateConversation,
 			scrollDown,
-		}">
+		}; window.profile = profile
+
+		characters.forEach(c => {
+			profile[ c.name ] = c
+		})
+		document.addEventListener('alpine:init', () => {
+			Alpine.data('profile', () => (profile))
+    		})
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js" defer></script>
+	</head>
+	<body>
+		<div id="main" class="flex one" x-data="profile">
 			<div id="top">
 				<textarea id="textarea" readonly x-model="conversation"></textarea>
 			</div>
@@ -33,10 +40,10 @@
 				<div class="tabs two">
 					<input id='tab-1' type='radio' name='tabgroupB' checked 
 						@click="who = ME">
-					<label class="pseudo button toggle" for="tab-1">Out-of-character</label>
+					<label class="pseudo button toggle" for="tab-1" x-text="ME"></label>
 					<input id='tab-2' type='radio' name='tabgroupB'
-						@click="who = PC">
-					<label class="pseudo button toggle" for="tab-2">In-character</label>
+						@click="who = Conan.name">
+					<label class="pseudo button toggle" for="tab-2" x-text="Conan.name"></label>
 					<div id="hint" class="row" style="color: lightgray;">
 						<div>
 							<p><em>You are chatting out-of-character:</em></p>

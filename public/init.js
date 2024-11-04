@@ -5,6 +5,6 @@ import Character from './character.js'
 
 const c1 = new Character('Conan')
 const c2 = new Character('Terminator')
-const assigned = [ c1, c2 ]
+const characters = [ c1, c2 ]
 
-export default assigned
+export default characters
