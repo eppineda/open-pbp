@@ -25,7 +25,7 @@ I wouldn't mind a hand with this. I usually fail when I take on ambitious projec
 
 Intentionally minimalist, to avoid upgrade churn, popular with so-called "modern" frameworks.
 - HTML, JavaScript and CSS.
-- PicnicCSS,for now.
+- PicnicCSS, for now.
 - AlpineJS
 - HTMX (in protest to aforementioned frameworks).
 - NodeJS
