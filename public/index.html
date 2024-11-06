@@ -15,19 +15,9 @@
 				<textarea id="textarea" readonly x-model="conversation"></textarea>
 			</div>
 			<div id="bottom">
-				<div class="tabs two"><!-- todo: these tabs need to be HTMXed -->
-					<input id='tab-1' type='radio' name='tabgroupB' checked 
-						@click="who = ME">
-					<label class="pseudo button toggle" for="tab-1" x-text="ME"></label>
-
-					<input id='tab-2' type='radio' name='tabgroupB'
-						@click="who = Conan.name">
-					<label class="pseudo button toggle" for="tab-2" x-text="Conan.name"></label>
-
-					<input id='tab-3' type='radio' name='tabgroupB'
-						@click="who = Terminator.name">
-					<label class="pseudo button toggle" for="tab-3" x-text="Terminator.name"></label>
-					<div id="hint" class="row" style="color: lightgray;">
+				<div class="tabs two">
+					<div id="hint" class="row" style="color: lightgray;"
+						hx-get="/chat-tabs/TBD" hx-trigger="load" hx-swap="beforebegin">
 						<div>
 							<p><em>You are chatting out-of-character:</em></p>
 						</div>

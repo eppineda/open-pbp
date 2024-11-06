@@ -9,6 +9,7 @@ const c2 = new Character('Terminator')
 const characters = [ c1, c2 ]
 const ME = 'me'
 const profile = {
+	username: 'enrique',
 	ME,
 	conversation: '',
 	who: 'me',
@@ -17,10 +18,16 @@ const profile = {
 	updateConversation: chatUtil.updateConversation,
 	scrollDown: chatUtil.scrollDown,
 }; window.profile = profile
-
 characters.forEach(c => {
 	profile[ c.name ] = c
 })
+
+// initialize the chat component
 document.addEventListener('alpine:init', () => {
 	Alpine.data('profile', () => (profile))
 })
+
+// prepare html markup for chat tabs
+const elDivHint = document.querySelector('#hint'); console.log(elDivHint)
+console.log(profile)
+elDivHint.setAttribute('hx-get', `/chat-tabs/enrique`)
